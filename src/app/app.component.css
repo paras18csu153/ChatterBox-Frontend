@@ -1,0 +1,34 @@
+* {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#form {
+  margin: 10% 0%;
+  padding: 10%;
+  background-color: rgb(250, 250, 250, 0.4);
+}
+
+.align-label {
+  text-align: right;
+  align-self: center;
+}
+
+.form-field {
+  width: 100%;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+
+.submit-btn {
+  margin-top: 10px;
+  width: 100%;
+}

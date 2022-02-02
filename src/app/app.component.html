@@ -1,0 +1,50 @@
+<div class="center">
+  <div>
+    <div>
+      <img src="./assets/images/svgs/logo.svg" alt="" />
+    </div>
+    <form
+      id="form"
+      #loginform="ngForm"
+      (ngSubmit)="submit(loginform.value)"
+      autocomplete="off"
+    >
+      <div class="row">
+        <div class="col-md-5 align-label">Name:</div>
+        <div class="col-md-7">
+          <input class="form-field" type="text" name="name" ngModel />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5 align-label">Username:</div>
+        <div class="col-md-7">
+          <input class="form-field" type="username" name="username" ngModel />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5 align-label">Email:</div>
+        <div class="col-md-7">
+          <input class="form-field" type="email" name="email" ngModel />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5 align-label">Password:</div>
+        <div class="col-md-7">
+          <input class="form-field" type="password" name="password" ngModel />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5 align-label">Confirm Password:</div>
+        <div class="col-md-7">
+          <input
+            class="form-field"
+            type="password"
+            name="confirmPassword"
+            ngModel
+          />
+        </div>
+      </div>
+      <button class="btn btn-dark submit-btn" type="submit">Submit</button>
+    </form>
+  </div>
+</div>

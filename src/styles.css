@@ -1,5 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 
+* {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background-image: url(https://media.istockphoto.com/photos/like-chat-comment-bubble-camera-hashtag-wi-fi-wireless-network-symbol-picture-id1288925180?b=1&k=20&m=1288925180&s=170667a&w=0&h=oRDMuwgthl5MpLJNKKqGBTRsJeg018_TuTYy9r3k5cw=);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 html,
 body {
   height: 100%;
@@ -8,6 +23,3 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

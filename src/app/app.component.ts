@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'chatterbox';
+
+  submit(form:any){
+    console.log(form);
+    console.log(form.name);
+  }
 }
