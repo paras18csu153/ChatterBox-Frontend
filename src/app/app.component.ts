@@ -8,8 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'chatterbox';
 
+  user = {username: '', email: '', password: ''};
+
   submit(form:any){
     console.log(form);
-    console.log(form.name);
+    console.log(this.user);
+    console.log(!this.user.email);
   }
 }
