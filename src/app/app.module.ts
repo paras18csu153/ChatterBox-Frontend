@@ -8,10 +8,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSliderModule } from '@angular/material/slider';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AppToastsComponent } from './components/app-toasts/app-toasts.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppToastsComponent
   ],
   imports: [
     BrowserModule,

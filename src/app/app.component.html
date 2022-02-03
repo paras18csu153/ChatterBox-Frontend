@@ -1,3 +1,6 @@
+<!-- somewhere in your root component template -->
+<app-app-toasts aria-live="polite" aria-atomic="true"></app-app-toasts>
+
 <div class="center">
   <div>
     <div>
@@ -68,11 +71,6 @@
           />
         </div>
       </div> -->
-      <div class="row">
-        <span *ngIf="loginError" class="errors server-error">{{
-          errorMessage
-        }}</span>
-      </div>
       <button
         class="btn btn-dark submit-btn"
         type="submit"
