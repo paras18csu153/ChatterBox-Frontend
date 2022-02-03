@@ -1,0 +1,83 @@
+<!-- somewhere in your root component template -->
+<app-app-toasts aria-live="polite" aria-atomic="true"></app-app-toasts>
+
+<div class="center">
+  <div>
+    <div>
+      <img src="./assets/images/svgs/logo.svg" alt="" />
+    </div>
+    <form
+      id="form"
+      #loginform="ngForm"
+      (ngSubmit)="submit()"
+      autocomplete="off"
+    >
+      <!-- <div class="row">
+        <div class="col-md-5 align-label">Name:</div>
+        <div class="col-md-7">
+          <input class="form-field" type="text" name="name" ngModel />
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="col-md-5 align-label">Username or Email:</div>
+        <div class="col-md-7">
+          <input
+            class="form-field form-control"
+            type="username"
+            name="username"
+            [(ngModel)]="user.username"
+            #username="ngModel"
+            required
+          />
+          <span
+            *ngIf="username.errors?.['required'] && username.touched"
+            class="errors"
+            >Username or Email is required.</span
+          >
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-md-5 align-label">Email:</div>
+        <div class="col-md-7">
+          <input class="form-field" type="email" name="email" ngModel />
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="col-md-5 align-label">Password:</div>
+        <div class="col-md-7">
+          <input
+            class="form-field form-control"
+            type="password"
+            name="password"
+            [(ngModel)]="user.password"
+            #password="ngModel"
+            required
+          />
+          <span
+            *ngIf="password.errors?.['required'] && password.touched"
+            class="errors"
+            >Password is required.</span
+          >
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-md-5 align-label">Confirm Password:</div>
+        <div class="col-md-7">
+          <input
+            class="form-field"
+            type="password"
+            name="confirmPassword"
+            ngModel
+          />
+        </div>
+      </div> -->
+      <button
+        class="btn btn-dark submit-btn"
+        type="submit"
+        [disabled]="!user.username || !user.password"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+</div>
