@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
 
         document.cookie = tempCookie;
 
-        this.router.navigate(['/login']);
+        this.router.navigate(['/']);
       },
 
       (error) => {

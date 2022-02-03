@@ -16,4 +16,8 @@ export class UserService {
   login(user: User){
     return this._http.post(`${this.url}${ApiPaths.Users}`, user, {observe: 'response'});
   }
+
+  register(user: User){
+    return this._http.post(`${this.url}${ApiPaths.Users}/register`, user, {observe: 'response'});
+  }
 }

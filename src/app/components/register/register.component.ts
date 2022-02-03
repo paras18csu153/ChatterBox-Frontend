@@ -22,11 +22,9 @@ export class RegisterComponent implements OnInit {
   }
 
   submit(){
-    this.user.email = this.user.username;
-
-    this.userService.login(this.user).subscribe(
+    this.userService.register(this.user).subscribe(
       (data) => {
-        this.toastService.show('Logged in Successfully !!', { classname: 'bg-success text-light'});
+        this.toastService.show('User Created Successfully !!', { classname: 'bg-success text-light'});
 
         let d = new Date();
         d.setTime(d.getTime() + (60*60*1000));
@@ -38,7 +36,7 @@ export class RegisterComponent implements OnInit {
 
         document.cookie = tempCookie;
 
-        this.router.navigate(['/login']);
+        this.router.navigate(['/']);
       },
 
       (error) => {
