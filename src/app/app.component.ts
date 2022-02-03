@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+import { User } from './models/user.model';
+import { UserService } from './services/user.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,11 +11,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'chatterbox';
 
-  user = {username: '', email: '', password: ''};
+  user = new User('', '', '');
 
-  submit(form:any){
-    console.log(form);
+  constructor(private userService: UserService) { }
+
+  submit(){
+    this.user.email = this.user.username;
     console.log(this.user);
-    console.log(!this.user.email);
+    this.userService.login(this.user).subscribe(
+      data => console.log('User Logged In!!', data),
+      error => console.error('Error', error)
+    );
   }
 }

@@ -3,8 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: 'http://localhost:3000/'
 };
+
+export enum ApiPaths {
+  Users = 'users'
+}
 
 /*
  * For easier debugging in development mode, you can import the following file
