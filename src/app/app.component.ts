@@ -12,6 +12,8 @@ export class AppComponent {
   title = 'chatterbox';
 
   user = new User('', '', '');
+  loginError = false;
+  errorMessage = '';
 
   constructor(private userService: UserService) { }
 
@@ -19,8 +21,14 @@ export class AppComponent {
     this.user.email = this.user.username;
     console.log(this.user);
     this.userService.login(this.user).subscribe(
-      data => console.log('User Logged In!!', data),
-      error => console.error('Error', error)
+      (data) => {
+        console.log('User Logged In!!', data);
+      },
+      (error) => {
+        console.error('Error', error);
+        this.loginError = true;
+        this.errorMessage = error.statusText;
+      }
     );
   }
 }
