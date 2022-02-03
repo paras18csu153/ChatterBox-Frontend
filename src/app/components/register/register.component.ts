@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
 
   user = new User('', '', '', '', '');
 
-  constructor(private userService: UserService, public toastService: ToastService, private router: Router) { }
+  constructor(private userService: UserService, public toastService: ToastService, public router: Router) { }
 
   ngOnInit(): void {
     if(document.cookie){

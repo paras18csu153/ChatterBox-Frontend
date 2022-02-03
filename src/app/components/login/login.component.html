@@ -12,12 +12,6 @@
       (ngSubmit)="submit()"
       autocomplete="off"
     >
-      <!-- <div class="row">
-        <div class="col-md-5 align-label">Name:</div>
-        <div class="col-md-7">
-          <input class="form-field" type="text" name="name" ngModel />
-        </div>
-      </div> -->
       <div class="row">
         <div class="col-md-5 align-label">Username or Email:</div>
         <div class="col-md-7">
@@ -36,12 +30,6 @@
           >
         </div>
       </div>
-      <!-- <div class="row">
-        <div class="col-md-5 align-label">Email:</div>
-        <div class="col-md-7">
-          <input class="form-field" type="email" name="email" ngModel />
-        </div>
-      </div> -->
       <div class="row">
         <div class="col-md-5 align-label">Password:</div>
         <div class="col-md-7">
@@ -60,17 +48,16 @@
           >
         </div>
       </div>
-      <!-- <div class="row">
-        <div class="col-md-5 align-label">Confirm Password:</div>
-        <div class="col-md-7">
-          <input
-            class="form-field"
-            type="password"
-            name="confirmPassword"
-            ngModel
-          />
+      <div class="row">
+        <div class="col-md-6">
+          <p class="link" (click)="this.router.navigate(['/register'])">
+            I don't have an account ...
+          </p>
         </div>
-      </div> -->
+        <div class="col-md-6">
+          <p class="align-label link">Forgot Password??</p>
+        </div>
+      </div>
       <button
         class="btn btn-dark submit-btn"
         type="submit"

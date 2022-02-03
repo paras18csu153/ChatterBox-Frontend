@@ -41,6 +41,11 @@
   margin-bottom: 5px;
 }
 
+.link {
+  cursor: pointer;
+  color: blue;
+}
+
 .submit-btn {
   margin-top: 10px;
   width: 100%;
