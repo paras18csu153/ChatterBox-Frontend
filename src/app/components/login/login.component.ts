@@ -13,7 +13,7 @@ import { UserService } from '../../services/user.service';
 
 export class LoginComponent implements OnInit {
   
-  user = new User('', '', '');
+  user = new User('', '', '', '', '');
 
   constructor(private userService: UserService, public toastService: ToastService, private router: Router) { }
 

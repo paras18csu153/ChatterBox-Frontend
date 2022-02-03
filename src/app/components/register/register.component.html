@@ -8,18 +8,28 @@
     </div>
     <form
       id="form"
-      #loginform="ngForm"
+      #registerform="ngForm"
       (ngSubmit)="submit()"
       autocomplete="off"
     >
-      <!-- <div class="row">
+      <div class="row">
         <div class="col-md-5 align-label">Name:</div>
         <div class="col-md-7">
-          <input class="form-field" type="text" name="name" ngModel />
+          <input
+            class="form-field form-control"
+            type="name"
+            name="name"
+            [(ngModel)]="user.name"
+            #name="ngModel"
+            required
+          />
+          <span *ngIf="name.errors?.['required'] && name.touched" class="errors"
+            >Name is required.</span
+          >
         </div>
-      </div> -->
+      </div>
       <div class="row">
-        <div class="col-md-5 align-label">Username or Email:</div>
+        <div class="col-md-5 align-label">Username:</div>
         <div class="col-md-7">
           <input
             class="form-field form-control"
@@ -32,16 +42,28 @@
           <span
             *ngIf="username.errors?.['required'] && username.touched"
             class="errors"
-            >Username or Email is required.</span
+            >Username is required.</span
           >
         </div>
       </div>
-      <!-- <div class="row">
+      <div class="row">
         <div class="col-md-5 align-label">Email:</div>
         <div class="col-md-7">
-          <input class="form-field" type="email" name="email" ngModel />
+          <input
+            class="form-field form-control"
+            type="email"
+            name="email"
+            [(ngModel)]="user.email"
+            #email="ngModel"
+            required
+          />
+          <span
+            *ngIf="email.errors?.['required'] && email.touched"
+            class="errors"
+            >Email is required.</span
+          >
         </div>
-      </div> -->
+      </div>
       <div class="row">
         <div class="col-md-5 align-label">Password:</div>
         <div class="col-md-7">
@@ -60,21 +82,34 @@
           >
         </div>
       </div>
-      <!-- <div class="row">
+      <div class="row">
         <div class="col-md-5 align-label">Confirm Password:</div>
         <div class="col-md-7">
           <input
-            class="form-field"
+            class="form-field form-control"
             type="password"
             name="confirmPassword"
-            ngModel
+            [(ngModel)]="user.confirmPassword"
+            #confirmPassword="ngModel"
+            required
           />
+          <span
+            *ngIf="confirmPassword.errors?.['required'] && confirmPassword.touched"
+            class="errors"
+            >Confirm Password is required.</span
+          >
         </div>
-      </div> -->
+      </div>
       <button
         class="btn btn-dark submit-btn"
         type="submit"
-        [disabled]="!user.username || !user.password"
+        [disabled]="
+          !user.name ||
+          !user.username ||
+          !user.email ||
+          !user.password ||
+          !user.confirmPassword
+        "
       >
         Login
       </button>

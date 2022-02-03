@@ -11,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class RegisterComponent implements OnInit {
 
-  user = new User('', '', '');
+  user = new User('', '', '', '', '');
 
   constructor(private userService: UserService, public toastService: ToastService, private router: Router) { }
 
