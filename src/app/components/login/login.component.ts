@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { User } from '../../models/user.model';
 import { ToastService } from '../../services/toast.service';
 import { UserService } from '../../services/user.service';
-import { AppToastsComponent } from '../app-toasts/app-toasts.component';
 
 @Component({
   selector: 'app-login',
