@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     if(document.cookie){
-      this.router.navigate(['/']);
+      this.router.navigate(['/dashboard']);
     }
   }
 
@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
 
         document.cookie = tempCookie;
 
-        this.router.navigate(['/']);
+        this.router.navigate(['/dashboard']);
       },
 
       (error) => {

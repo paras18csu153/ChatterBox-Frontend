@@ -13,6 +13,8 @@ import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LoginComponent,
     PageNotFoundComponent,
     RegisterComponent,
-    NavbarComponent
+    NavbarComponent,
+    SidebarComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
