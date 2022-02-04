@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { User } from '../../models/user.model';
 import { ToastService } from '../../services/toast.service';
 import { UserService } from '../../services/user.service';
+import { AppToastsComponent } from '../app-toasts/app-toasts.component';
 
 @Component({
   selector: 'app-login',
@@ -27,17 +28,20 @@ export class LoginComponent implements OnInit {
     this.user.email = this.user.username;
 
     this.userService.login(this.user).subscribe(
-      (data) => {
+      (data: any) => {
         this.toastService.show('Logged in Successfully !!', { classname: 'bg-success text-light'});
 
         let d = new Date();
         d.setTime(d.getTime() + (60*60*1000));
+        let username = "username=" + data.body.username;
         let token = "token=" + data.headers.get('Authorization');
 
         let expires = "expires=" + d.toUTCString();
 
-        let tempCookie = token + ";" + expires;
+        let tempCookie =  token + ";" + expires;
+        document.cookie = tempCookie;
 
+        tempCookie =  username + ";" + expires;
         document.cookie = tempCookie;
 
         this.router.navigate(['/dashboard']);
