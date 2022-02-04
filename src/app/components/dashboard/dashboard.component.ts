@@ -12,4 +12,11 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  set(string: String){
+    if(string == "image"){
+      return "image";
+    }
+    return "text"
+  }
+
 }

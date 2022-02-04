@@ -1,1 +1,16 @@
-<p>dashboard works!</p>
+<div id="mySidebar" class="sidebar">
+  <app-navbar [display]="set('image')"></app-navbar>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+
+<div id="main">
+  <app-navbar></app-navbar>
+  <h2>Collapsed Sidebar</h2>
+  <p>
+    Click on the hamburger menu/bar icon to open the sidebar, and push this
+    content to the right.
+  </p>
+</div>

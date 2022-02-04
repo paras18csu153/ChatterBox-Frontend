@@ -1,1 +1,30 @@
-<p>navbar works!</p>
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img
+      src="./assets/images/svgs/logo.svg"
+      alt=""
+      *ngIf="display == 'image'"
+      id="logo"
+    />
+    <span *ngIf="display == ''">Navbar</span>
+    <button
+      *ngIf="display == 'image'"
+      id="menu"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      <img
+        src="./assets/images/svgs/menu.svg"
+        alt=""
+        *ngIf="display == 'image'"
+        id="menuImg"
+      />
+    </button>
+    <div class="dropdown-menu dropdown-menu-right" id="options">
+      <button class="dropdown-item" type="button">Action</button>
+      <button class="dropdown-item" type="button">Another action</button>
+      <button class="dropdown-item" type="button">Something else here</button>
+    </div>
+  </a>
+</nav>
