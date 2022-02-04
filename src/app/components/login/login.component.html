@@ -50,12 +50,12 @@
       </div>
       <div class="row">
         <div class="col-md-6">
-          <p class="link" (click)="this.router.navigate(['/register'])">
+          <a class="link" [routerLink]="['/register']">
             I don't have an account ...
-          </p>
+          </a>
         </div>
-        <div class="col-md-6">
-          <p class="align-label link">Forgot Password??</p>
+        <div class="col-md-6 align-label">
+          <a class="link" [routerLink]=""> Forgot Password?? </a>
         </div>
       </div>
       <button

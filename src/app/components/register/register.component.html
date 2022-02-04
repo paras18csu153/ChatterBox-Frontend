@@ -101,13 +101,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12">
-          <p
-            class="align-label link"
-            (click)="this.router.navigate(['/login'])"
-          >
-            I have an account ...
-          </p>
+        <div class="col-md-12 align-label">
+          <a class="link" [routerLink]="['/login']"> I have an account ... </a>
         </div>
       </div>
       <button
