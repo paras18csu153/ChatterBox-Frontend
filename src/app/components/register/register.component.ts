@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
 
   submit(){
     this.userService.register(this.user).subscribe(
-      (data) => {
+      (data:any) => {
         this.toastService.show('User Created Successfully !!', { classname: 'bg-success text-light'});
 
         let d = new Date();
@@ -39,8 +39,8 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/dashboard']);
       },
 
-      (error) => {
-        this.toastService.show(error.statusText, { classname: 'bg-danger text-light'});
+      (error:any) => {
+        this.toastService.show(error.error.message, { classname: 'bg-danger text-light'});
       }
     );
   }

@@ -8,7 +8,8 @@ export const environment = {
 };
 
 export enum ApiPaths {
-  Users = 'users'
+  Users = 'users',
+  Chats = 'chats/',
 }
 
 /*

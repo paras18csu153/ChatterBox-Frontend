@@ -24,8 +24,6 @@ export class UserService {
   logout(user: User, token: string){
     let headers = new HttpHeaders;
     headers = headers.append("Authorization", token);
-    console.log(token);
-    console.log(headers);
     return this._http.post(`${this.url}${ApiPaths.Users}/logout`, user, {headers});
   }
 }

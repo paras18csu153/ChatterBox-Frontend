@@ -20,11 +20,9 @@ export class NavbarComponent implements OnInit {
   logout(){
     let data = new User('', this.getCookie("username"), '', '', '');
     let token = this.getCookie("token");
-    console.log(data.username);
-    console.log(document.cookie);
 
     this.userService.logout(data, token).subscribe(
-      (data) => {
+      (data:any) => {
         this.toastService.show('Logged Out Successfully !!', { classname: 'bg-success text-light'});
 
         let d = new Date();
@@ -43,9 +41,8 @@ export class NavbarComponent implements OnInit {
         this.router.navigate(['/login']);
       },
 
-      (error) => {
-        console.log("Hi");
-        this.toastService.show(error.statusText, { classname: 'bg-danger text-light'});
+      (error:any) => {
+        this.toastService.show(error.error.message, { classname: 'bg-danger text-light'});
       }
     );
   }

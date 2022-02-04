@@ -46,8 +46,8 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/dashboard']);
       },
 
-      (error) => {
-        this.toastService.show(error.statusText, { classname: 'bg-danger text-light'});
+      (error:any) => {
+        this.toastService.show(error.error.message, { classname: 'bg-danger text-light'});
       }
     );
   }
