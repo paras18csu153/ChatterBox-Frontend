@@ -91,6 +91,11 @@ body {
   border-top: 0;
 }
 
+.searchBar:hover {
+  background-color: transparent;
+  cursor: default;
+}
+
 .searchChat {
   width: 90%;
   border: solid 1px #ccc;
