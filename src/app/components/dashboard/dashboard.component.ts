@@ -11,7 +11,11 @@ import { ToastService } from 'src/app/services/toast.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private chatService: ChatService, public toastService: ToastService, private router: Router) { }
+  chats:any;
+
+  constructor(private chatService: ChatService, public toastService: ToastService, private router: Router) {
+    this.chats = [""];
+  }
 
   ngOnInit(): void {
     let username = this.getCookie("username");
@@ -20,6 +24,9 @@ export class DashboardComponent implements OnInit {
     this.chatService.get(username, token).subscribe(
       (data: any) => {
         console.log(data);
+        this.chats = data.chattingWith;
+        this.chats.reverse();
+        console.log(this.chats);
       },
 
       (error :any) => {

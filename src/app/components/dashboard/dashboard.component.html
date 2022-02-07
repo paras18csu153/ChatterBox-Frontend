@@ -4,16 +4,31 @@
 <div id="mySidebar" class="sidebar">
   <app-navbar [display]="set('image')"></app-navbar>
   <div class="chats searchBar">
-    <input type="text" class="searchChat" style="background-color: white" />
+    <input
+      type="text"
+      class="searchChat"
+      style="background-color: white"
+      placeholder="Search..."
+    />
   </div>
-  <div class="chats">
-    <p>About</p>
+  <div *ngIf="chats && chats.length > 0">
+    <div *ngFor="let chat of chats; let i = index">
+      <div *ngIf="i != chats.length - 1; else lastEle">
+        <div class="chats">
+          <p *ngIf="chat.groupName; else displayChat">{{ chat.groupName }}</p>
+          <ng-template #displayChat>{{ chat }}</ng-template>
+        </div>
+      </div>
+      <ng-template #lastEle>
+        <div class="chats last">
+          <p *ngIf="chat.groupName; else displayChat">{{ chat.groupName }}</p>
+          <ng-template #displayChat>{{ chat }}</ng-template>
+        </div>
+      </ng-template>
+    </div>
   </div>
-  <div class="chats">
-    <p>About</p>
-  </div>
-  <div class="chats last">
-    <p>About</p>
+  <div *ngIf="!chats || chats.length == 0" class="no-chat">
+    <h4><strong>No Messages Found!!</strong></h4>
   </div>
 </div>
 
