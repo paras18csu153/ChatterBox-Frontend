@@ -12,7 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 export class NavbarComponent implements OnInit {
   @Input() display:String = "";
   
-  constructor(private userService: UserService, public toastService: ToastService,private router: Router) { }
+  constructor(private userService: UserService, public toastService: ToastService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -42,7 +42,27 @@ export class NavbarComponent implements OnInit {
       },
 
       (error:any) => {
-        this.toastService.show(error.error.message, { classname: 'bg-danger text-light'});
+        if(error.status == 403){
+          this.toastService.show('Logged Out Successfully !!', { classname: 'bg-success text-light'});
+        
+          let d = new Date();
+          d.setTime(d.getTime() - (60*60*1000));
+          let username = "username=";
+          let token = "token=";
+        
+          let expires = "expires=" + d.toUTCString();
+        
+          let tempCookie = token + ";" + expires;
+          document.cookie = tempCookie;
+        
+          tempCookie = username + ";" + expires;
+          document.cookie = tempCookie;
+        
+          this.router.navigate(['/login']);
+        }
+        else{
+          this.toastService.show(error.error.message, { classname: 'bg-danger text-light'});
+        }
       }
     );
   }

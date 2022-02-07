@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user.model';
 import { ChatService } from 'src/app/services/chat.service';
 import { ToastService } from 'src/app/services/toast.service';
 
@@ -9,7 +11,7 @@ import { ToastService } from 'src/app/services/toast.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private chatService: ChatService, public toastService: ToastService) { }
+  constructor(private chatService: ChatService, public toastService: ToastService, private router: Router) { }
 
   ngOnInit(): void {
     let username = this.getCookie("username");
@@ -21,7 +23,27 @@ export class DashboardComponent implements OnInit {
       },
 
       (error :any) => {
-        this.toastService.show(error.error.message, { classname: 'bg-danger text-light'});
+        if(error.status == 403){
+          this.toastService.show('Logged Out Successfully !!', { classname: 'bg-success text-light'});
+        
+          let d = new Date();
+          d.setTime(d.getTime() - (60*60*1000));
+          let username = "username=";
+          let token = "token=";
+        
+          let expires = "expires=" + d.toUTCString();
+        
+          let tempCookie = token + ";" + expires;
+          document.cookie = tempCookie;
+        
+          tempCookie = username + ";" + expires;
+          document.cookie = tempCookie;
+        
+          this.router.navigate(['/login']);
+        }
+        else{
+          this.toastService.show(error.error.message, { classname: 'bg-danger text-light'});
+        }
       }
     );
   }
