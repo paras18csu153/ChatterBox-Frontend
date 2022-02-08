@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { io } from 'socket.io-client';
+
+const socket = io("http://localhost:3000");
 
 @Component({
   selector: 'app-footer',
@@ -12,4 +15,7 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  send(){
+    console.log("Hi");
+  }
 }
