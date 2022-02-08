@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChatService } from 'src/app/services/chat.service';
+import { SocketIOService } from 'src/app/services/socket-io.service';
 import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class DashboardComponent implements OnInit {
   image:any = "image";
   display:any = "ChatterBox";
 
-  constructor(private chatService: ChatService, public toastService: ToastService, private router: Router) {
+  constructor(private chatService: ChatService, public toastService: ToastService, private router: Router, private socketIOService: SocketIOService) {
     this.chats = [""];
   }
 
