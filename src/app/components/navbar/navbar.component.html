@@ -6,10 +6,10 @@
     <img
       src="./assets/images/svgs/logo.svg"
       alt=""
-      *ngIf="display == 'image'"
+      *ngIf="image == 'image'"
       id="logo"
     />
-    <span *ngIf="display == ''">Navbar</span>
+    <span *ngIf="display">{{ display }}</span>
     <button
       *ngIf="display == 'image'"
       id="menu"

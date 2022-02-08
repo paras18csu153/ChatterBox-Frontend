@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { ToastService } from 'src/app/services/toast.service';
@@ -9,12 +9,18 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnChanges {
+  @Input() image:String = "";
   @Input() display:String = "";
   
   constructor(private userService: UserService, public toastService: ToastService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+    console.log("value changed", this.display);
   }
 
   logout(){
