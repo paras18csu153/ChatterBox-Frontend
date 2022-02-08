@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
 
   chats:any;
   image:any = "image";
-  display:any = "";
+  display:any = "ChatterBox";
 
   constructor(private chatService: ChatService, public toastService: ToastService, private router: Router) {
     this.chats = [""];

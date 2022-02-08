@@ -48,6 +48,6 @@
 
 <div id="main">
   <app-navbar [display]="display"></app-navbar>
-  <app-messages></app-messages>
-  <!-- <app-footer></app-footer> -->
+  <app-messages *ngIf="display == 'ChatterBox'"></app-messages>
+  <app-footer *ngIf="display != 'ChatterBox'"></app-footer>
 </div>
