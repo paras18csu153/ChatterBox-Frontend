@@ -10,12 +10,19 @@ const socket = io("http://localhost:3000");
 })
 export class FooterComponent implements OnInit {
 
+  message:any;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   send(){
-    console.log("Hi");
+    console.log(this.message);
+    socket.emit('chat message', this.message);
+    socket.on('new_msg', (msg)=>{
+      console.log(msg);
+    });
+    this.message = "";
   }
 }

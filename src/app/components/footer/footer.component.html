@@ -1,5 +1,10 @@
 <nav class="navbar fixed-bottom navbar-light bg-light" id="footer">
-  <input type="text" id="message" placeholder="Start Typing..." />
+  <input
+    type="text"
+    id="message"
+    placeholder="Start Typing..."
+    [(ngModel)]="message"
+  />
   <button type="button" class="btn btn-warning" (click)="send()">
     Send<mat-icon id="sendIcon">send</mat-icon>
   </button>
