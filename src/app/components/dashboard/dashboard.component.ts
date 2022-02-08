@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { discardPeriodicTasks } from '@angular/core/testing';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user.model';
 import { ChatService } from 'src/app/services/chat.service';
 import { ToastService } from 'src/app/services/toast.service';
 

@@ -11,7 +11,7 @@
     />
     <span *ngIf="display">{{ display }}</span>
     <button
-      *ngIf="display == 'image'"
+      *ngIf="image"
       id="menu"
       data-toggle="dropdown"
       aria-haspopup="true"
@@ -20,7 +20,7 @@
       <img
         src="./assets/images/svgs/menu.svg"
         alt=""
-        *ngIf="display == 'image'"
+        *ngIf="image"
         id="menuImg"
       />
     </button>
