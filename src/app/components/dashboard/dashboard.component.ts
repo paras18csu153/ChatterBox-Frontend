@@ -24,10 +24,8 @@ export class DashboardComponent implements OnInit {
 
     this.chatService.get(username, token).subscribe(
       (data: any) => {
-        console.log(data);
         this.chats = data.chattingWith;
         this.chats.reverse();
-        console.log(this.chats);
       },
 
       (error :any) => {
@@ -73,7 +71,6 @@ export class DashboardComponent implements OnInit {
   }
 
   setDisplay(chat:string){
-    console.log(chat);
     this.display = chat;
   }
 }

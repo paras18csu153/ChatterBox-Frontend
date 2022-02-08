@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { io } from 'socket.io-client';
-
-const socket = io("http://localhost:3000");
+import { Component, OnInit, Input } from '@angular/core';
+import { SocketIOService } from 'src/app/services/socket-io.service';
 
 @Component({
   selector: 'app-footer',
@@ -9,20 +7,18 @@ const socket = io("http://localhost:3000");
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
+  @Input() display:String = "";
 
   message:any;
 
-  constructor() { }
+  constructor(private socketService: SocketIOService) { }
 
   ngOnInit(): void {
+    this.socketService.receiveMessage();
   }
 
   send(){
-    console.log(this.message);
-    socket.emit('chat message', this.message);
-    socket.on('new_msg', (msg)=>{
-      console.log(msg);
-    });
+    this.socketService.sendMessage(this.message);
     this.message = "";
   }
 }
