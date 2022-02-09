@@ -66,8 +66,13 @@ body {
 .chats {
   border-top: 1px solid rgb(250, 250, 250, 0.5);
   border-bottom: 1px solid rgb(250, 250, 250, 0.5);
-  padding: 15px 5px;
   font-size: 20px;
+}
+
+.chats p {
+  margin: 0;
+  padding: 20px 0px;
+  padding-left: 10px;
 }
 
 .chats:hover {
@@ -92,6 +97,7 @@ p:hover {
 .searchBar {
   text-align: center;
   border-top: 0;
+  padding: 20px 0px;
 }
 
 .searchBar:hover {

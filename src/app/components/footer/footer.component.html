@@ -4,8 +4,14 @@
     id="message"
     placeholder="Start Typing..."
     [(ngModel)]="message"
+    autofocus
   />
-  <button type="submit" class="btn btn-warning" (click)="send()">
+  <button
+    type="submit"
+    class="btn btn-warning"
+    (click)="send()"
+    [disabled]="!message"
+  >
     Send<mat-icon id="sendIcon">send</mat-icon>
   </button>
 </nav>

@@ -18,7 +18,9 @@ export class FooterComponent implements OnInit {
   }
 
   send(){
-    this.socketService.sendMessage(this.message);
-    this.message = "";
+    if(this.message != ""){
+      this.socketService.sendMessage(this.message);
+      this.message = "";
+    }
   }
 }
