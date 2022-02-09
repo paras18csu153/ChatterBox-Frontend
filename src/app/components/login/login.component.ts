@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(private socketService: SocketIOService, private userService: UserService, public toastService: ToastService, private router: Router) { }
 
   ngOnInit(): void {
+    this.socketService.receiveMessage();
     if(document.cookie){
       this.router.navigate(['/dashboard']);
     }

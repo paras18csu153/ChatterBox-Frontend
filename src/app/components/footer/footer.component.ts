@@ -14,7 +14,6 @@ export class FooterComponent implements OnInit {
   constructor(private socketService: SocketIOService) { }
 
   ngOnInit(): void {
-    this.socketService.receiveMessage();
   }
 
   send(){

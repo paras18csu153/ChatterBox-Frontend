@@ -10,21 +10,21 @@ export class SocketIOService {
 
   constructor() { }
 
+  setSocketData(data:any){
+    let socketData = {
+      username: data,
+      socketId: socket.id
+    }
+    socket.emit('setSocketData', socketData);
+  }
+
   sendMessage(data: any){
     socket.emit('sendMessage', data);
   }
 
   receiveMessage(){
     socket.on('receiveMessage', (msg)=>{
-      console.log(msg);
-      console.log("Received Message");
+      console.log("Received Message: " + msg);
     });
-  }
-
-  setSocketData(data:any){
-    let socketData = {
-      username: data
-    }
-    socket.emit('setSocketData', socketData);
   }
 }
