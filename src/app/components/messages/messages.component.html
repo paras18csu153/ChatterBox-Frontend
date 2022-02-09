@@ -1,3 +1,5 @@
-<div id="no-chat-selected">
+<div id="no-chat-selected" *ngIf="display == 'ChatterBox'; else messages">
   <h4><strong>Select Chat to read conversation!!</strong></h4>
 </div>
+
+<ng-template #messages>Hi</ng-template>
