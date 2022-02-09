@@ -27,4 +27,8 @@ export class SocketIOService {
       console.log("Received Message: " + msg);
     });
   }
+
+  removeAllListeners(){
+    socket.removeAllListeners();
+  }
 }

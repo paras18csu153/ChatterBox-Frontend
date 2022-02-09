@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
+import { SocketIOService } from 'src/app/services/socket-io.service';
 import { ToastService } from 'src/app/services/toast.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -13,7 +14,7 @@ export class NavbarComponent implements OnInit {
   @Input() image:String = "";
   @Input() display:String = "";
   
-  constructor(private userService: UserService, public toastService: ToastService, private router: Router) { }
+  constructor(private socketService: SocketIOService, private userService: UserService, public toastService: ToastService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -38,6 +39,8 @@ export class NavbarComponent implements OnInit {
 
         tempCookie = username + ";" + expires;
         document.cookie = tempCookie;
+
+        this.socketService.removeAllListeners();
 
         this.router.navigate(['/login']);
       },
