@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SocketIOService } from 'src/app/services/socket-io.service';
 
 import { User } from '../../models/user.model';
 import { ToastService } from '../../services/toast.service';
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   
   user = new User('', '', '', '', '');
 
-  constructor(private userService: UserService, public toastService: ToastService, private router: Router) { }
+  constructor(private socketService: SocketIOService, private userService: UserService, public toastService: ToastService, private router: Router) { }
 
   ngOnInit(): void {
     if(document.cookie){
@@ -42,6 +43,8 @@ export class LoginComponent implements OnInit {
 
         tempCookie =  username + ";" + expires;
         document.cookie = tempCookie;
+
+        this.socketService.setSocketData(data.body.username);
 
         this.router.navigate(['/dashboard']);
       },
