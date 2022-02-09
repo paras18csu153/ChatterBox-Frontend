@@ -4,6 +4,7 @@
     id="message"
     placeholder="Start Typing..."
     [(ngModel)]="message"
+    (keyup.enter)="send()"
     autofocus
   />
   <button
