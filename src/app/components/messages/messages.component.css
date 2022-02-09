@@ -4,3 +4,16 @@
   align-items: center;
   height: 92.5vh;
 }
+
+.my-rows {
+  margin-left: 0;
+  margin-right: 0;
+  text-align: justify;
+}
+
+.my-rows p {
+  background-color: rgb(250, 250, 250, 0.5);
+  margin-top: 10%;
+  margin-bottom: 10%;
+  padding: 10% 5%;
+}
