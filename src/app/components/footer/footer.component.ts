@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SocketIOService } from 'src/app/services/socket-io.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { SocketIOService } from 'src/app/services/socket-io.service';
 })
 export class FooterComponent implements OnInit {
   @Input() display:String = "";
+  @Output() newMessageEvent = new EventEmitter<string>();
 
   message:any;
 
@@ -23,7 +24,12 @@ export class FooterComponent implements OnInit {
         to: this.display
       }
       this.socketService.sendMessage(data);
+      this.addNewItem(this.message);
       this.message = "";
     }
+  }
+
+  addNewItem(value: string) {
+    this.newMessageEvent.emit(value);
   }
 }

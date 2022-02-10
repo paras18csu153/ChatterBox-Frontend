@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   chats:any;
   image:any = "image";
   display:any = "ChatterBox";
+  message = "";
 
   constructor(private chatService: ChatService, public toastService: ToastService, private router: Router) {
     this.chats = [""];
@@ -72,5 +73,9 @@ export class DashboardComponent implements OnInit {
 
   setDisplay(chat:string){
     this.display = chat;
+  }
+
+  addMessage(newMessage: string) {
+    this.message = newMessage;
   }
 }
